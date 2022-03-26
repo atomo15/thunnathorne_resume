@@ -1,8 +1,8 @@
-# For Developer
+# For Developer Setup and Run Project
 
-## Check overall setup
+## Clone Flutter From GitHub Repository
 ```
-flutter doctor
+git clone https://github.com/flutter/flutter.git -b stable
 ```
 
 ## Configuration of Flutter command 
@@ -11,8 +11,14 @@ export PATH="$PATH:`pwd`/flutter/bin"
 ```
 
 ## Configuration for Xcode
+- Need Xcode to sign in with Apple ID
 ```
 sudo gem install cocoapods
+```
+
+## Check overall setup
+```
+flutter doctor
 ```
 
 ## Run Project
