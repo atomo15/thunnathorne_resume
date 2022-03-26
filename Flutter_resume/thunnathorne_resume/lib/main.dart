@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:image_network/image_network.dart';
 //import 'package:liquid_swipe/liquid_swipe.dart';
 
 void main() {
@@ -34,6 +35,9 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  String imageUrl =
+      'https://firebasestorage.googleapis.com/v0/b/bosdyn-abc38.appspot.com/o/Atom_Vegas.jpg?alt=media&token=4535ac6a-872a-45cf-b0c3-22ca901a8845';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,18 +55,44 @@ class _MyHomePageState extends State<MyHomePage> {
             SizedBox(
               height: 50,
             ),
-            Container(
-              width: 250,
+            // Container(
+            //   width: 250,
+            //   height: 250,
+            //   decoration: new BoxDecoration(
+            //       shape: BoxShape.circle,
+            //       image: new DecorationImage(
+            //           fit: BoxFit.cover,
+            //           image: new NetworkImage(
+            //               "https://firebasestorage.googleapis.com/v0/b/bosdyn-abc38.appspot.com/o/Atom_Vegas.jpg?alt=media&token=4535ac6a-872a-45cf-b0c3-22ca901a8845"))),
+            // ),
+            // SizedBox(
+            //   height: 50,
+            // ),
+            ImageNetwork(
+              image: imageUrl,
               height: 250,
-              decoration: new BoxDecoration(
-                  shape: BoxShape.circle,
-                  image: new DecorationImage(
-                      fit: BoxFit.cover,
-                      image: new NetworkImage(
-                          "https://firebasestorage.googleapis.com/v0/b/bosdyn-abc38.appspot.com/o/Atom_Vegas.jpg?alt=media&token=4535ac6a-872a-45cf-b0c3-22ca901a8845"))),
+              width: 250,
+              duration: 1500,
+              curve: Curves.easeIn,
+              onPointer: true,
+              debugPrint: false,
+              fullScreen: false,
+              fitAndroidIos: BoxFit.cover,
+              fitWeb: BoxFitWeb.cover,
+              borderRadius: BorderRadius.circular(90),
+              onLoading: const CircularProgressIndicator(
+                color: Colors.indigoAccent,
+              ),
+              onError: const Icon(
+                Icons.error,
+                color: Colors.red,
+              ),
+              onTap: () {
+                debugPrint("©gabriel_patrick_souza");
+              },
             ),
             SizedBox(
-              height: 50,
+              height: 10,
             ),
             RichText(
               text: TextSpan(
