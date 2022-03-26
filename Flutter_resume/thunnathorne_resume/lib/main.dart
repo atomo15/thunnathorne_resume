@@ -1,4 +1,7 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
+//import 'package:liquid_swipe/liquid_swipe.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,13 +14,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Thunnathorne Resume',
+      title: 'TS Resume',
       theme: ThemeData(
-      
-        primarySwatch: Colors.green,
-        
-      ),
-      home: const MyHomePage(title: 'Thunnathorne'),
+          scaffoldBackgroundColor: Colors.black, primaryColor: Colors.green),
+      darkTheme: ThemeData.dark(),
+      //darkTheme: ThemeData.dark(),
+      home: const MyHomePage(title: 'Thunnathorne Resume'),
     );
   }
 }
@@ -32,68 +34,53 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
     return Scaffold(
       appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
+        title: Text(
+          widget.title,
+          style: TextStyle(color: Colors.black),
+        ),
+        backgroundColor: Colors.greenAccent,
       ),
       body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
         child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
+          //mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+            SizedBox(
+              height: 50,
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
+            Container(
+              width: 250,
+              height: 250,
+              decoration: new BoxDecoration(
+                  shape: BoxShape.circle,
+                  image: new DecorationImage(
+                      fit: BoxFit.cover,
+                      image: new NetworkImage(
+                          "https://firebasestorage.googleapis.com/v0/b/bosdyn-abc38.appspot.com/o/Atom_Vegas.jpg?alt=media&token=4535ac6a-872a-45cf-b0c3-22ca901a8845"))),
             ),
+            SizedBox(
+              height: 50,
+            ),
+            RichText(
+              text: TextSpan(
+                  text: 'Thunnathorne Synhiranakkrakul ',
+                  style: TextStyle(
+                    color: Color.fromARGB(255, 15, 245, 23),
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    //backgroundColor: Colors.black
+                  )),
+            )
+            // Image.asset(
+            //   'images/Atom_Vegas.jpg',
+            //   height: 300,
+            // )
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
