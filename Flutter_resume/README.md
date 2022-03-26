@@ -1,4 +1,4 @@
-# For Developer Setup and Run Project
+# For Developer Setup and Run Project on MacOS
 
 ## Clone Flutter From GitHub Repository
 ```
@@ -21,12 +21,22 @@ sudo gem install cocoapods
 flutter doctor
 ```
 
-## Run Project
+## Open Simulator for Xcode
 ```
-flutter run
+open -a Simulator
 ```
+
+## Android Studio need to install following:
+- Android SDK Command-line Tools
+- Android SDK Build-Tools
 
 ## Check all devices
 ```
 flutter devices
 ```
+
+## Run Project
+```
+flutter run
+```
+
